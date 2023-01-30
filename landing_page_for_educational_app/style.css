@@ -1,0 +1,56 @@
+a{
+	text-decoration: none;
+}
+
+.app-name{
+	font-family: 'Vibur';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 50px;
+	line-height: 72px;
+	color: #000;
+}
+
+.language-select{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-family: 18px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.sign-up, .log-in{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 4px;
+
+}
+
+.sign-up{
+	font-weight: 600;
+	background: #3A5AFF;
+	color: #fff;
+	box-shadow: inset 0px -4px 1px rgba(0, 0, 0, 0.6);
+}
+
+.log-in{
+	font-weight: 700;
+	color: #979797;
+	border: 1px solid #979797;
+}
+
+.menu{
+}
+
+.right{
+	float: right;
+}
+
+.left{
+	float: left;
+}
