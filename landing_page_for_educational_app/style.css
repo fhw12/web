@@ -26,7 +26,6 @@ a{
 	font-size: 16px;
 	line-height: 2.5em;
 	text-align: center;
-	/*padding: 10px;*/
 	border-radius: 4px;
 
 	width: 110px;
@@ -100,5 +99,9 @@ a{
 	color: #FFFFFF;
 	background: #3A5AFF;
 	border-radius: 4px;
-	padding: 18px;
+
+	width: 255px;
+	height: 56px;
+	display: inline-block;
+	line-height: 3.1em;
 }
