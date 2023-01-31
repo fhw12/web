@@ -118,7 +118,6 @@ a{
 	width: 255px;
 	height: 56px;
 	display: inline-block;
-<<<<<<< HEAD
 	line-height: 3.1em;
 }
 
@@ -131,7 +130,5 @@ a{
 	.image1{
 		display: none;
 	}
-=======
 	line-height: 3.4em;
->>>>>>> 38203cdc3e3f40901a5bd020e7c55b37b4336cc6
 }
