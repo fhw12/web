@@ -143,4 +143,8 @@ a{
 	.header{
 		justify-content: flex-end;
 	}
+
+	.content-text1{
+		font-size: 50px;
+	}
 }
