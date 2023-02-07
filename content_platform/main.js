@@ -14,14 +14,25 @@ let users = [
 ];
 
 let btnlog = document.querySelector(".btnlog");
+let btnreg = document.querySelector(".btnreg");
+
+let auth_form = document.querySelector(".auth_form");
+let reg_form = document.querySelector(".reg_form");
+
 btnlog.addEventListener("click", open_login_form);
+btnreg.addEventListener("click", open_reg_form);
+
 
 function open_login_form() {
-	let auth_form = document.querySelector(".auth_form");
 	auth_form.style.display = "block";
-
 	let frmbut = document.querySelector(".frmbut");
 	frmbut.addEventListener("click", auth);
+}
+
+function open_reg_form() { 
+	reg_form.style.display = "block";
+	let reg_form_btn = document.querySelector(".reg_form_btn");
+	reg_form_btn.addEventListener("click", reg);
 }
 
 function auth(){
@@ -31,17 +42,33 @@ function auth(){
 	checkLogPass(frmlog, frmpass);
 }
 
+function reg(){
+	let content = document.querySelector(".content");
+	let login = document.querySelector("#reg_form_login").value;
+	let password = document.querySelector("#reg_form_password").value;
+
+	for(const user of users){
+		if(user.login == login){
+			content.innerHTML = "Error login!"
+			return;
+		}
+	}
+
+	users.push({
+		"login" : login,
+		"password" : password,
+		"priv": "user",
+	});
+}
+
 function checkLogPass(login, password) {
 	let content = document.querySelector(".content");
 	for (const user of users) {
 		if (user.login == login && user.password == password) {
 			content.innerHTML = `Hello, ${login}`;
-
-			let auth_form = document.querySelector(".auth_form");
-			auth_form.style.display = "none";
-			
+			auth_form.style.display = "none";			
 			return;
 		}
 	}
-	content.innerHTML = `Error!`;
+	content.innerHTML = `Error login or password!`;
 }

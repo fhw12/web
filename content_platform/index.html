@@ -8,7 +8,8 @@
 </head>
 <body>
 
-	<a href="#" class="btnlog">Log in</a>     
+	<a href="#" class="btnlog">Log in</a><br><br>
+	<a href="#" class="btnreg">Sign up</a>
 
 	<div class="auth_form">
 		<h1>Log in</h1>
@@ -20,6 +21,20 @@
 			<input type="text" id="frmpass" required placeholder="Password" pattern="[^ ]+">
 			<br>
 			<input type="button" value="Log in" class="frmbut">
+			<input type="reset" value="Cancel">
+		</form>
+	</div>
+
+	<div class="reg_form">
+		<h1>Sign up</h1>
+		<form action="">
+			<label for="reg_form_login">Login</label>
+			<input type="text" id="reg_form_login" required placeholder="Login" pattern="[A-Za-z0-9]+">
+			<br>
+			<label for="reg_form_password">Password</label>
+			<input type="text" id="reg_form_password" required placeholder="Password" pattern="[^ ]+">
+			<br>
+			<input type="button" value="Sign up" class="reg_form_btn">
 			<input type="reset" value="Cancel">
 		</form>
 	</div>
