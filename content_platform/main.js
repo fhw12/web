@@ -22,7 +22,6 @@ let reg_form = document.querySelector(".reg_form");
 btnlog.addEventListener("click", open_login_form);
 btnreg.addEventListener("click", open_reg_form);
 
-
 function open_login_form() {
 	reg_form.style.display = "none";
 	auth_form.style.display = "block";
@@ -75,9 +74,38 @@ function checkLogPass(login, password) {
 				content.innerHTML += "<br> > user";
 			}
 
-			auth_form.style.display = "none";			
+			content.innerHTML += "<br><br><button onclick=\"log_out()\">Log out</button>"
+
+			auth_form.style.display = "none";
+			btnlog.style.display = "none";
+			btnreg.style.display = "none";
+
 			return;
 		}
 	}
 	content.innerHTML = `Error login or password!`;
+}
+
+function log_out(){
+	btnlog.style.display = "block";
+	btnreg.style.display = "block";
+
+	let content = document.querySelector(".content");
+
+	content.innerHTML = "";
+	reg_form.style.display = "none";
+	auth_form.style.display = "none";
+}
+
+function reset_password(){
+	let content = document.querySelector(".content");
+	let login = document.querySelector("#frmlog").value;
+	
+
+	for(const user of users){
+		if(user.login == login){
+			content.innerHTML = user.password;
+			return;
+		}
+	}
 }
