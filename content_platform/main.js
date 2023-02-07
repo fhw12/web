@@ -24,12 +24,14 @@ btnreg.addEventListener("click", open_reg_form);
 
 
 function open_login_form() {
+	reg_form.style.display = "none";
 	auth_form.style.display = "block";
 	let frmbut = document.querySelector(".frmbut");
 	frmbut.addEventListener("click", auth);
 }
 
 function open_reg_form() { 
+	auth_form.style.display = "none";
 	reg_form.style.display = "block";
 	let reg_form_btn = document.querySelector(".reg_form_btn");
 	reg_form_btn.addEventListener("click", reg);
@@ -65,7 +67,14 @@ function checkLogPass(login, password) {
 	let content = document.querySelector(".content");
 	for (const user of users) {
 		if (user.login == login && user.password == password) {
-			content.innerHTML = `Hello, ${login}`;
+			content.innerHTML = `Hello, ${login}!`;
+
+			if(user.priv == 'admin'){
+				content.innerHTML += "<br> > admin";
+			} else {
+				content.innerHTML += "<br> > user";
+			}
+
 			auth_form.style.display = "none";			
 			return;
 		}
