@@ -8,7 +8,24 @@
 </head>
 <body>
 
+	<a href="#" class="btnlog">Log in</a>     
 
-<script type="text/javascript" src="main.js"></script>
-</body>
+	<div class="auth_form">
+		<h1>Log in</h1>
+		<form action="">
+			<label for="frmlog">Login</label>
+			<input type="text" id="frmlog" required placeholder="Login" pattern="[A-Za-z0-9]+">
+			<br>
+			<label for="frmlog">Password</label>
+			<input type="text" id="frmpass" required placeholder="Password" pattern="[^ ]+">
+			<br>
+			<input type="button" value="Log in" class="frmbut">
+			<input type="reset" value="Cancel">
+		</form>
+	</div>
+
+	<div class="content"></div>
+
+	<script src="main.js"></script>
+  </body>
 </html>
