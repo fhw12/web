@@ -1,7 +1,18 @@
 .auth_form {
-    display: none;
+	display: none;
 }
 
 .reg_form {
-    display: none;
+	display: none;
+}
+
+.btnlog, .btnreg{
+	display: inline-block;
+	background: #485BC0;
+	color: #FFF;
+	width: 100px;	
+	padding: 10px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
 }

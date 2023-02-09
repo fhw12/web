@@ -53,8 +53,7 @@ function reg(){
 	if(validation_login(login) && validation_password(password)){
 		for(const user of users){
 			if(user.login == login){
-				// content.innerHTML = "Error login!"
-				alert("Error login!");
+				alert("Такой логин уже занят!");
 				return;
 			}
 		}
@@ -74,7 +73,7 @@ function checkLogPass(login, password) {
 			content.innerHTML = `Hello, ${login}!`;
 
 			if(user.priv == 'admin'){
-				content.innerHTML += "<br> > admin";
+				content.innerHTML += "<br><img src=\"img.jpg\">";
 			} else {
 				content.innerHTML += "<br> > user";
 			}
@@ -89,12 +88,12 @@ function checkLogPass(login, password) {
 		}
 	}
 	// content.innerHTML = `Error login or password!`;
-	alert("Error login or password!");
+	alert("Неверный логин или пароль!");
 }
 
 function log_out(){
-	btnlog.style.display = "block";
-	btnreg.style.display = "block";
+	btnlog.style.display = "inline-block";
+	btnreg.style.display = "inline-block";
 
 	let content = document.querySelector(".content");
 
@@ -117,22 +116,22 @@ function reset_password(){
 }
 
 function validation_login(str){
-	if(str.length == 0){ alert("Input login!"); return false; }
+	if(str.length == 0){ alert("Введите логин!"); return false; }
 	for(let i = 0; i < str.length; i++){
 		if(!(
 		 str.charAt(i) >= 'a' && str.charAt(i) <= 'z' ||
 		 str.charAt(i) >= 'A' && str.charAt(i) <= 'Z' ||
 		 str.charAt(i) >= '0' && str.charAt(i) <= '9'
-		 )){ alert("Use only english chars and numbers!"); return false; }
+		 )){ alert("Используйте только латиницу и цифры!"); return false; }
 	}
 
 	return true
 }
 
 function validation_password(str){
-	if(str.length == 0){ alert("Input password!"); return false; }
+	if(str.length == 0){ alert("Введите пароль!"); return false; }
 	for(let i = 0; i < str.length; i++){
-		if(str.charAt(i) == ' '){ alert("No use spaces in password!"); return false; }
+		if(str.charAt(i) == ' '){ alert("Нельзя использовать пробелы!"); return false; }
 	}
 
 	return true
