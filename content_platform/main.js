@@ -50,18 +50,21 @@ function reg(){
 	let login = document.querySelector("#reg_form_login").value;
 	let password = document.querySelector("#reg_form_password").value;
 
-	for(const user of users){
-		if(user.login == login){
-			content.innerHTML = "Error login!"
-			return;
+	if(validation_login(login) && validation_password(password)){
+		for(const user of users){
+			if(user.login == login){
+				// content.innerHTML = "Error login!"
+				alert("Error login!");
+				return;
+			}
 		}
-	}
 
-	users.push({
-		"login" : login,
-		"password" : password,
-		"priv": "user",
-	});
+		users.push({
+			"login" : login,
+			"password" : password,
+			"priv": "user",
+		});
+	}
 }
 
 function checkLogPass(login, password) {
@@ -85,7 +88,8 @@ function checkLogPass(login, password) {
 			return;
 		}
 	}
-	content.innerHTML = `Error login or password!`;
+	// content.innerHTML = `Error login or password!`;
+	alert("Error login or password!");
 }
 
 function log_out(){
@@ -113,22 +117,22 @@ function reset_password(){
 }
 
 function validation_login(str){
-	if(str.length == 0){ alert("Input login!"); }
+	if(str.length == 0){ alert("Input login!"); return false; }
 	for(let i = 0; i < str.length; i++){
 		if(!(
 		 str.charAt(i) >= 'a' && str.charAt(i) <= 'z' ||
 		 str.charAt(i) >= 'A' && str.charAt(i) <= 'Z' ||
 		 str.charAt(i) >= '0' && str.charAt(i) <= '9'
-		 )){ alert("Use only english chars and numbers!"); }
+		 )){ alert("Use only english chars and numbers!"); return false; }
 	}
 
 	return true
 }
 
 function validation_password(str){
-	if(str.length == 0){ alert("Input password!"); }
+	if(str.length == 0){ alert("Input password!"); return false; }
 	for(let i = 0; i < str.length; i++){
-		if(str.charAt(i) == ' '){ alert("No use spaces in password!"); }
+		if(str.charAt(i) == ' '){ alert("No use spaces in password!"); return false; }
 	}
 
 	return true
