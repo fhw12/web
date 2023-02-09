@@ -40,7 +40,9 @@ function auth(){
 	let frmlog = document.querySelector("#frmlog").value;
 	let frmpass = document.querySelector("#frmpass").value;
 
-	checkLogPass(frmlog, frmpass);
+	if(validation_login(frmlog) && validation_password(frmpass)){
+		checkLogPass(frmlog, frmpass);
+	}
 }
 
 function reg(){
@@ -108,4 +110,26 @@ function reset_password(){
 			return;
 		}
 	}
+}
+
+function validation_login(str){
+	if(str.length == 0){ alert("Input login!"); }
+	for(let i = 0; i < str.length; i++){
+		if(!(
+		 str.charAt(i) >= 'a' && str.charAt(i) <= 'z' ||
+		 str.charAt(i) >= 'A' && str.charAt(i) <= 'Z' ||
+		 str.charAt(i) >= '0' && str.charAt(i) <= '9'
+		 )){ alert("Use only english chars and numbers!"); }
+	}
+
+	return true
+}
+
+function validation_password(str){
+	if(str.length == 0){ alert("Input password!"); }
+	for(let i = 0; i < str.length; i++){
+		if(str.charAt(i) == ' '){ alert("No use spaces in password!"); }
+	}
+
+	return true
 }
