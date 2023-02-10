@@ -30,6 +30,8 @@ function open_login_form() {
 }
 
 function open_reg_form() { 
+	let content = document.querySelector(".content");
+	content.innerHTML = "";
 	auth_form.style.display = "none";
 	reg_form.style.display = "block";
 	let reg_form_btn = document.querySelector(".reg_form_btn");
