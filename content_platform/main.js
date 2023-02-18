@@ -1,5 +1,7 @@
 "use strict";
 
+let slider_interval_id;
+
 let users = [
 	{
 		"login" : "admin",
@@ -72,10 +74,16 @@ function checkLogPass(login, password) {
 	let content = document.querySelector(".content");
 	for (const user of users) {
 		if (user.login == login && user.password == password) {
-			content.innerHTML = `Hello, ${login}!`;
+			content.innerHTML = `
+			<div class="slider" style="display: flex; border: 1px solid red; width: 300px; height: 50px; overflow: hidden;">
+				<div id="slider-item" style="position: relative; display: flex; cursor: pointer;">
+
+				</div>
+			</div><span id="info"></span><br><br>
+			Hello, ${login}!<br>`;
 
 			if(user.priv == 'admin'){
-				content.innerHTML += "<br><img src=\"img.jpg\">";
+				content.innerHTML += "<br><img src=\"img/img.jpg\">";
 			} else {
 				content.innerHTML += "<br> > user";
 			}
@@ -85,6 +93,8 @@ function checkLogPass(login, password) {
 			auth_form.style.display = "none";
 			btnlog.style.display = "none";
 			btnreg.style.display = "none";
+
+			slider_interval_id = run_slider('slider-item', ['img/1.png', 'img/2.png'], ["Текст рекламы #1", "Описание рекламного блока #2"]);
 
 			return;
 		}
@@ -102,12 +112,13 @@ function log_out(){
 	content.innerHTML = "";
 	reg_form.style.display = "none";
 	auth_form.style.display = "none";
+
+	clearInterval(slider_interval_id);
 }
 
 function reset_password(){
 	let content = document.querySelector(".content");
 	let login = document.querySelector("#frmlog").value;
-	
 
 	for(const user of users){
 		if(user.login == login){
@@ -137,4 +148,58 @@ function validation_password(str){
 	}
 
 	return true
+}
+
+function run_slider(slider_id, images, description){
+	let el = document.getElementById(slider_id);
+
+	images.push(images[0]);
+	for(let i = 0; i < images.length; i++){
+		el.innerHTML += `<img src="${images[i]}">`;
+	}
+
+	let size_x = 300;
+	let max = -size_x * (images.length - 1);
+	let pos_x = 0;
+	let time = 0;
+	let open_description = false;
+
+	function slider_info(){
+		if(pos_x % size_x != 0){
+			return;
+		}
+
+		if(open_description){
+			document.getElementById('info').innerHTML = "";
+			open_description = false;
+			return;
+		}
+		let i = -Math.ceil(pos_x / size_x);
+		//pos_x = size_x * -i;
+		//el.style.left = `${pos_x}px`;
+		document.getElementById('info').innerHTML = description[i];
+		open_description = true;
+	}
+
+	function slider(){
+		if(time > 300 && open_description == false){
+			pos_x -= 1;
+			if(pos_x <= max){
+				pos_x = 0;
+			}
+
+			el.style.left = `${pos_x}px`;
+			
+			if(pos_x % size_x == 0){
+				time = 0;
+			}
+
+		}else{
+			time += 1;
+		}
+	}
+
+	el.addEventListener("click", slider_info);
+
+	return setInterval(slider, 10);
 }
