@@ -75,7 +75,7 @@ function checkLogPass(login, password) {
 	for (const user of users) {
 		if (user.login == login && user.password == password) {
 			content.innerHTML = `
-			<div class="slider" style="display: flex; border: 1px solid red; width: 300px; height: 50px; overflow: hidden;">
+			<div class="slider" style="display: flex; width: 300px; height: 50px; overflow: hidden;">
 				<div id="slider-item" style="position: relative; display: flex; cursor: pointer;">
 
 				</div>
