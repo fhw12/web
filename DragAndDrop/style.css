@@ -1,0 +1,64 @@
+body{
+	background: #F5F5F9;
+	color: #333333;
+	font-family: 'Roboto Mono', monospace;
+}
+
+*{
+	user-select: none;
+}
+
+#pickaxe{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#coins{
+	font-size: 20px;
+}
+
+#block{
+
+}
+
+#destroy, #destroy_line{
+	height: 5px;	
+	border-radius: 5px;
+}
+
+#destroy{
+	width: 128px;
+	background: #EBEBEB;
+}
+
+#destroy_line{
+	width: 0px;
+	background: #7E7E9A;
+}
+
+.window{
+	position: absolute;
+	background: #EBEBEB;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.buy_button, .buy_button_disable{
+	width: 100px;
+	height: 30px;
+	background: #1A6FEE;
+	color: white;
+	border-radius: 10px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+.buy_button:hover{
+	background: #00398f;
+}
+
+.buy_button_disable{
+	background: #C9D4FB;
+}
