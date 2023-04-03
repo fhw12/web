@@ -71,7 +71,7 @@ function selectPackaxe(){
 selectPackaxe()
 
 function buyPackaxe(pickaxe_name){
-	if(coins > pickaxe[pickaxe_name].price && pickaxe[pickaxe_name].amount == 0){
+	if(coins >= pickaxe[pickaxe_name].price && pickaxe[pickaxe_name].amount == 0){
 		coins -= pickaxe[pickaxe_name].price;
 		pickaxe[pickaxe_name].amount += 1;
 	}
